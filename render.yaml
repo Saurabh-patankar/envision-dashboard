@@ -1,8 +1,17 @@
-# Render.com Blueprint — deploys the whole app as ONE web service.
+# Render.com Blueprint — deploys the whole app as ONE free web service.
 #
 # The build step installs deps, builds the React frontend into client/dist,
-# and seeds the SQLite database. Express then serves both the API and the
+# and seeds the SQLite database. Express then serves BOTH the API and the
 # built frontend from a single public URL.
+#
+# NOTE ON THE FREE PLAN:
+# Render's free tier has an EPHEMERAL filesystem (no persistent disk), so the
+# SQLite file is re-created and re-seeded on every deploy/restart. That means
+# the app always boots with the provided mock data (exactly what the brief
+# asks for), but data added at runtime resets when the free instance sleeps
+# or redeploys. This is the correct trade-off for a free demo deployment.
+# (To make runtime data permanent, upgrade to a paid plan and add a `disk:`
+#  block with mountPath: /data plus DATABASE_PATH=/data/data.sqlite.)
 #
 # To use: push this repo to GitHub, then on Render click
 # "New +" -> "Blueprint" and point it at the repo.
@@ -11,19 +20,12 @@ services:
     name: envision-dashboard
     runtime: node
     plan: free
-    # Persist SQLite across restarts on a mounted disk.
-    disk:
-      name: sqlite-data
-      mountPath: /data
-      sizeGB: 1
     buildCommand: >
       npm install --prefix server &&
       npm install --prefix client &&
       npm run build --prefix client &&
-      DATABASE_PATH=/data/data.sqlite npm run seed --prefix server
+      npm run seed --prefix server
     startCommand: npm start --prefix server
     envVars:
       - key: NODE_VERSION
         value: 20.11.0
-      - key: DATABASE_PATH
-        value: /data/data.sqlite
