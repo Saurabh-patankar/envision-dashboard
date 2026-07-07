@@ -1,0 +1,20 @@
+{
+  "name": "envision-dashboard-server",
+  "version": "1.0.0",
+  "description": "Backend API for the EnvisionStudio Project Management Dashboard",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/seed.js"
+  },
+  "keywords": ["express", "sqlite", "rest-api", "project-management"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "envision-dashboard",
+  "version": "1.0.0",
+  "description": "EnvisionStudio Project Management Dashboard — React + Express + SQLite monorepo",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "seed": "npm run seed --prefix server",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "postinstall": "npm install --prefix server && npm install --prefix client"
+  },
+  "license": "MIT"
+}
