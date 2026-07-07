@@ -8,6 +8,17 @@ filtering, a dashboard summary, and a clean, responsive **dark theme** UI.
 
 **Stack:** React (Vite) + Tailwind CSS · Node.js / Express · SQLite (better‑sqlite3)
 
+## 🔗 Live Demo
+
+**➡️ https://envision-dashboard-9lme.onrender.com**
+
+> ⏳ Hosted on Render's free tier, which sleeps after inactivity — the **first
+> request may take ~50 seconds** to wake the server. Subsequent requests are
+> instant. The database is seeded with the provided mock data on every boot, so
+> the app always loads with 10 projects and 20 tasks.
+
+- **GitHub:** https://github.com/Saurabh-patankar/envision-dashboard
+
 ---
 
 ## ✨ Features
